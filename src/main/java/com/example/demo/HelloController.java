@@ -38,16 +38,28 @@ public class HelloController implements Initializable {
                 //update
                 if (input.contains("w")) {
                     myRect.setY(myRect.getY() - myRect.getV());
+                    if (myRect.getY() + myRect.getH()< 0){
+                        myRect.setY(canvas.getHeight());
+                    }
                 }
 
                 if (input.contains("s")) {
                     myRect.setY(myRect.getY() + myRect.getV());
+                    if (myRect.getY()> canvas.getHeight()){
+                        myRect.setY(-myRect.getH());
+                    }
                 }
                 if (input.contains("a")) {
                     myRect.setX(myRect.getX() - myRect.getV());
+                    if (myRect.getX() + myRect.getW() < 0){
+                        myRect.setX(canvas.getWidth());
+                    }
                 }
                 if (input.contains("d")) {
                     myRect.setX(myRect.getX() + myRect.getV());
+                    if(myRect.getX() > canvas.getWidth()){
+                        myRect.setX(-myRect.getW());
+                    }
                 }
                 //render
                 gc.setFill(myRect.getC());
